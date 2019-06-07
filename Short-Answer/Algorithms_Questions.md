@@ -8,11 +8,11 @@ pseudocode with respect to the input size n of each of the following:
 ```
 a)  a = 0   //O(1)
     while (a < n * n * n):  //O(n^3)
-      a = a + n * n   //O(n^2)
+      a = a + n * n   //O(1)
 
-O(1) + O(n^3) * O(n^2)
-1 + (n^3 * n^2)
-O(n^5)
+O(1) + O(n^3) * O(1)
+1 + (n^3 * 1)
+O(n^3)
 ```
 
 ```
