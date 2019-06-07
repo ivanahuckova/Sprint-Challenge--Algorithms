@@ -4,7 +4,7 @@ class SortingRobot:
         SortingRobot takes a list and sorts it.
         """
         self._list = l          # The list the robot is tasked with sorting
-        self._item = None       # The item the robot is holding
+        self._item = l[0]       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
@@ -98,14 +98,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        for i in range(len(self._list)):
-            if self.can_move_right():
+
+        # def bubble_sort(arr):
+#
+#     while swapped is True:
+#         swapped = False
+#         print(arr)
+#         for i in range(1, len(arr)):
+#             if arr[i - 1] > arr[i]:
+#                 swap item
+#                 swapped = True
+#         print(swapped)
+#     return arr
+
+        self.set_light_on()
+        while self._light == "ON":  # swapped = True
+            self.set_light_off()  # swapped = True
+
+            while self.can_move_right():
+                self.swap_item()
                 self.move_right()
-                print(self.compare_item())
-                if self.compare_item():
+                if self.compare_item() == 1:
                     self.swap_item()
                     self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()  # swapped = True
+                else:
                     self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            while self.can_move_left():
+                self.move_left()
 
 
 if __name__ == "__main__":
