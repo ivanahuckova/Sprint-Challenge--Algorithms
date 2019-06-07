@@ -50,3 +50,11 @@ O(n)
 Suppose that you have an _n_-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get broken if dropped off a floor less than floor _f_. Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.
+
+```
+1. Start in the middle of the building (n/2)
+2. It either breaks, or it does not. The outcome of this drop instantly cuts our problem in half.
+3. On each drop, we keep dividing the problem in half and half again until we get to our solution.
+4. O(log2 n)
+
+```
