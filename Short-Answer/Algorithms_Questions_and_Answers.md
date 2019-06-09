@@ -7,13 +7,13 @@ pseudocode with respect to the input size n of each of the following:
 
 ```
 a)  a = 0   //O(1)
-    while (a < n * n * n):  //O(n^3)
+    while (a < n * n * n):  //O(1)
       a = a + n * n   //O(1)
 
 ANSWER:
-O(1) + O(n^3) * O(1)
-1 + (n^3 * 1)
-O(n^3)
+O(1) + O(1) * O(1)
+1 + (1 * 1)
+O(1)
 ```
 
 ```
@@ -24,16 +24,12 @@ b)  sum = 0   //O(1)
         j += 1      //O(1) ok
         for k in range(j + 1, n):   //O(n)
           k += 1      //O(1) ok
-          for l in range(k + 1, 10 + k):    //O(n+10)
+          for l in range(k + 1, 10 + k):    //O(c)
             l += 1  O(1)
             sum += 1   O(1)
 
 ANSWER:
-O(1)  + O(n) * (O(1) + O(n) * (O(1) + O(n) * (O(1) * O(n+10) * (O(1) + O(1))))
-1 +  n + n^2 (1 + n * (1 * n+10 * 2))
-1 + n + n^2 + n^3 * 2n + 10
-1 + n + n^2 + 2n^4 + 10
-O(n^4)
+O(n^3)
 ```
 
 ```
